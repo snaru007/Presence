@@ -1,5 +1,6 @@
 package org.hackme.presence;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,18 +14,24 @@ public class EnterPeriodRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_period_room);
 
-        final EditText roomNumberInput = (EditText)findViewById(R.id.roomInput);
-        final EditText periodNumberInput = (EditText)findViewById(R.id.periodInput);
+        //final EditText roomNumberInput = (EditText)findViewById(R.id.roomInput);
+        //final EditText periodNumberInput = (EditText)findViewById(R.id.periodInput);
 
         Button submitButton = findViewById(R.id.submitButton);
+
+        final Intent goToNameList = new Intent(this, NameListActivity.class);
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                int roomNumberInt = Integer.parseInt(roomNumberInput.getText().toString());
-                int periodNumberInt = Integer.parseInt(periodNumberInput.getText().toString());
+                //int roomNumberInt = Integer.parseInt(roomNumberInput.getText().toString());
+                //int periodNumberInt = Integer.parseInt(periodNumberInput.getText().toString());
+
+                startActivity(goToNameList);
 
             }
 
         });
+
     }
 }

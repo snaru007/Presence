@@ -13,8 +13,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         final Intent startRandP = new Intent(this, EnterPeriodRoom.class);
-        Button submitButton = findViewById(R.id.startButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        Button startButton = findViewById(R.id.startButton);
+        startButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(startRandP);
             }
