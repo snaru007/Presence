@@ -63,6 +63,7 @@ public class EnterPeriodRoom extends AppCompatActivity {
                 if(condA || condAX || condB || condBX || condC || condCX || condD || condE) {
                     goToNameList.putExtra("ROOM_NUMBER", roomNumber);
                     goToNameList.putExtra("PERIOD_NUMBER", periodNumber);
+                    goToNameList.putExtra("DAY_LETTER", dayType);
                     startActivity(goToNameList);
                 } else {
                     Toast.makeText(EnterPeriodRoom.this, "INVALID PERIOD NUMBER", Toast.LENGTH_LONG).show();
