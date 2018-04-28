@@ -19,6 +19,15 @@ public class NameListActivity extends AppCompatActivity implements View.OnClickL
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+
+        int roomNumber = getIntent().getIntExtra("ROOM_NUMBER", 0);
+        int periodNumber = getIntent().getIntExtra("PERIOD_NUMBER", 0);
+        String  dayType = getIntent().getStringExtra("DAY_LETTER");
+
+        //buttons.add(button1);
+        //buttons.add(button2);
+        //buttons.add(button3);
+
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
