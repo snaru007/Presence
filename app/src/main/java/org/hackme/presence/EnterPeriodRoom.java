@@ -31,9 +31,9 @@ public class EnterPeriodRoom extends AppCompatActivity {
         dayLetters.add("C");
         dayLetters.add("D");
         dayLetters.add("E");
-        dayLetters.add("Ax");
-        dayLetters.add("Bx");
-        dayLetters.add("Cx");
+        dayLetters.add("AX");
+        dayLetters.add("BX");
+        dayLetters.add("CX");
 
         ArrayAdapter<String> dayLettersArray = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,dayLetters);
 
@@ -46,13 +46,15 @@ public class EnterPeriodRoom extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                int roomNumberInt = Integer.parseInt(roomNumberInput.getText().toString());
-                int periodNumberInt = Integer.parseInt(periodNumberInput.getText().toString());
+                int roomNumber = Integer.parseInt(roomNumberInput.getText().toString());
+                int periodNumber = Integer.parseInt(periodNumberInput.getText().toString());
 
                 Toast.makeText(EnterPeriodRoom.this,
-                        "" + roomNumberInt,
+                        "" + roomNumber,
                         Toast.LENGTH_LONG).show();
 
+                goToNameList.putExtra("ROOM_NUMBER", roomNumber);
+                goToNameList.putExtra("PERIOD_NUMBER", periodNumber);
                 startActivity(goToNameList);
 
             }
