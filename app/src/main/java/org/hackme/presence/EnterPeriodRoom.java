@@ -20,12 +20,12 @@ public class EnterPeriodRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_period_room);
 
-        final EditText roomNumberInput = (EditText)findViewById(R.id.roomInput);
-        final EditText periodNumberInput = (EditText)findViewById(R.id.periodInput);
+        final EditText roomNumberInput = findViewById(R.id.roomInput);
+        final EditText periodNumberInput = findViewById(R.id.periodInput);
 
-        final Spinner scheduleDay = (Spinner) findViewById(R.id.scheduleDaySpinner);
+        final Spinner scheduleDay = findViewById(R.id.scheduleDaySpinner);
 
-        List<String> dayLetters = new ArrayList<>();
+        final List<String> dayLetters = new ArrayList<>();
         dayLetters.add("A");
         dayLetters.add("B");
         dayLetters.add("C");
@@ -47,15 +47,26 @@ public class EnterPeriodRoom extends AppCompatActivity {
             public void onClick(View v) {
 
                 int roomNumber = Integer.parseInt(roomNumberInput.getText().toString());
-                int periodNumber = Integer.parseInt(periodNumberInput.getText().toString());
+                String periodString = periodNumberInput.getText().toString();
+                int periodNumber = Integer.parseInt(periodString);
+                String dayType = scheduleDay.getSelectedItem().toString();
 
-                Toast.makeText(EnterPeriodRoom.this,
-                        "" + roomNumber,
-                        Toast.LENGTH_LONG).show();
+                boolean condA = dayType.equalsIgnoreCase("A") && periodString.matches("[1234]");
+                boolean condAX = dayType.equalsIgnoreCase("AX") && periodString.matches("[1234]");
+                boolean condB = dayType.equalsIgnoreCase("B") && periodString.matches("[5678]");
+                boolean condBX = dayType.equalsIgnoreCase("BX") && periodString.matches("[5678]");
+                boolean condC = dayType.equalsIgnoreCase("C") && periodString.matches("[12345]");
+                boolean condCX = dayType.equalsIgnoreCase("CX") && periodString.matches("[12345]");
+                boolean condD = dayType.equalsIgnoreCase("D") && periodString.matches("[123678]");
+                boolean condE = dayType.equalsIgnoreCase("E") && periodString.matches("[45678]");
 
-                goToNameList.putExtra("ROOM_NUMBER", roomNumber);
-                goToNameList.putExtra("PERIOD_NUMBER", periodNumber);
-                startActivity(goToNameList);
+                if(condA || condAX || condB || condBX || condC || condCX || condD || condE) {
+                    goToNameList.putExtra("ROOM_NUMBER", roomNumber);
+                    goToNameList.putExtra("PERIOD_NUMBER", periodNumber);
+                    startActivity(goToNameList);
+                } else {
+                    Toast.makeText(EnterPeriodRoom.this, "INVALID PERIOD NUMBER", Toast.LENGTH_LONG).show();
+                }
 
             }
 
