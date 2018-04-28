@@ -16,20 +16,37 @@
         android:text="Teacher Utility Application"/>
 
     <TextView
-        android:id = "@+id/roomText"
+        android:id = "@+id/dayText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_below="@id/title"
         android:layout_margin="15dp"
-        android:textSize="12sp"
+        android:textSize="20dp"
+        android:text="Day Type:"/>
+
+    <Spinner
+        android:id="@+id/scheduleDaySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/dayText"
+        android:layout_marginStart="148dp" />
+
+    <TextView
+        android:id = "@+id/roomText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/dayText"
+        android:layout_margin="15dp"
+        android:textSize="20dp"
         android:text="Enter Room Number:"/>
 
     <EditText
         android:id="@+id/roomInput"
         android:layout_height="40dp"
         android:layout_width="40dp"
-        android:layout_below="@id/title"
-        android:layout_toRightOf="@id/roomText"
+        android:layout_below="@id/dayText"
+        android:layout_toEndOf="@id/roomText"
         android:inputType="text"/>
 
     <TextView
@@ -38,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_below="@id/roomText"
         android:layout_margin="15dp"
-        android:textSize="12sp"
+        android:textSize="20dp"
         android:text="Enter Period Number:"/>
 
     <EditText
@@ -56,7 +73,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
         android:layout_below="@id/periodText"
-        android:textSize="16sp"
+        android:textSize="20dp"
         android:text = "Submit"/>
 
 </RelativeLayout>
