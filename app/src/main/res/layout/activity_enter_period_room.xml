@@ -16,10 +16,26 @@
         android:text="Teacher Utility Application"/>
 
     <TextView
-        android:id = "@+id/roomText"
+        android:id = "@+id/dayText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_below="@id/title"
+        android:layout_margin="15dp"
+        android:textSize="12sp"
+        android:text="Enter Letter Day:"/>
+
+    <Spinner
+        android:id="@+id/scheduleDaySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_toEndOf="@id/dayText"/>
+
+    <TextView
+        android:id = "@+id/roomText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/scheduleDaySpinner"
         android:layout_margin="15dp"
         android:textSize="12sp"
         android:text="Enter Room Number:"/>
@@ -28,7 +44,7 @@
         android:id="@+id/roomInput"
         android:layout_height="40dp"
         android:layout_width="40dp"
-        android:layout_below="@id/title"
+        android:layout_below="@id/scheduleDaySpinner"
         android:layout_toRightOf="@id/roomText"
         android:inputType="text"/>
 
