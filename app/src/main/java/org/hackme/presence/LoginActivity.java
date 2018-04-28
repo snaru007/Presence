@@ -3,6 +3,7 @@ package org.hackme.presence;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         studentName = getIntent().getStringExtra("STUDENT_NAME");
         userView = findViewById(R.id.user);
+        userView.setEnabled(false);
         mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -166,6 +168,9 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
             if (success) {
                 finish();
+                Intent nameList = new Intent(getBaseContext(), NameListActivity.class);
+                //nameList.putExtra("LOGGED_IN_STUDENT", studentName);
+                //startActivity(nameList);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -179,4 +184,3 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
-

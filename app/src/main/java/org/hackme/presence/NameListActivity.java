@@ -1,6 +1,7 @@
 package org.hackme.presence;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ public class NameListActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_list);
+        getIntent().getStringExtra("LOGGED_IN_STUDENT");
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
@@ -35,6 +37,7 @@ public class NameListActivity extends AppCompatActivity implements View.OnClickL
 
     public void onClick(View v) {
         Button b = (Button) v;
+        b.setEnabled(false);
         name = b.getText().toString();
         Intent login = new Intent(getBaseContext(), LoginActivity.class);
         login.putExtra("STUDENT_NAME", name);
