@@ -4,15 +4,18 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.AsyncTask;
 
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+
 import android.text.TextUtils;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,11 +35,14 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String studentName;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        studentName = getIntent().getStringExtra("STUDENT_NAME");
         userView = findViewById(R.id.user);
         mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -49,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         Button mUserSignInButton = (Button) findViewById(R.id.sign_in_button);
         mUserSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -57,7 +62,14 @@ public class LoginActivity extends AppCompatActivity {
                 attemptLogin();
             }
         });
-
+        String[] names = studentName.split(" ");
+        if (names[1].length() < 7) {
+            username = (names[0].charAt(0) + names[1]).toLowerCase();
+        } else {
+            username = (names[0].charAt(0) + names[1].substring(0, 7)).toLowerCase();
+        }
+        studentName.substring(1, 1);
+        userView.setText(username);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
