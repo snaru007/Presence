@@ -168,9 +168,6 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
             if (success) {
                 finish();
-                Intent nameList = new Intent(getBaseContext(), NameListActivity.class);
-                //nameList.putExtra("LOGGED_IN_STUDENT", studentName);
-                //startActivity(nameList);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

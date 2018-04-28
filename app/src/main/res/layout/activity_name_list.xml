@@ -36,4 +36,14 @@
         android:text="@string/name3"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/reportButton"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:text="@string/report_button"
+        android:textSize="16sp" />
+
 </RelativeLayout>
